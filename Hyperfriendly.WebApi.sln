@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hyperfriendly.WebApi", "Hyperfriendly.WebApi\Hyperfriendly.WebApi.csproj", "{0924BB7C-8EE9-4318-A78C-7C5E28F66883}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hyperfriendly.WebApi.Tests", "Hyperfriendly.WebApi.Tests\Hyperfriendly.WebApi.Tests.csproj", "{2F13E114-516A-4110-A5C8-193CAEE7FC7C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0924BB7C-8EE9-4318-A78C-7C5E28F66883}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0924BB7C-8EE9-4318-A78C-7C5E28F66883}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0924BB7C-8EE9-4318-A78C-7C5E28F66883}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0924BB7C-8EE9-4318-A78C-7C5E28F66883}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F13E114-516A-4110-A5C8-193CAEE7FC7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F13E114-516A-4110-A5C8-193CAEE7FC7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F13E114-516A-4110-A5C8-193CAEE7FC7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F13E114-516A-4110-A5C8-193CAEE7FC7C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
