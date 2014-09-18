@@ -29,6 +29,29 @@ namespace Hyperfriendly.WebApi.Tests
             json.SelectToken("_links").Type.ShouldEqual(JTokenType.Object);
         }
 
+        [Fact]
+        public void converts_rel_with_single_links_to_json_object()
+        {
+            var resource = new FooResource();
+            resource.Links.Add(new Link("self", "http://api.example.org/foo"));
+
+            var json = Format(resource);
+
+            json.SelectToken("_links.self").Type.ShouldEqual(JTokenType.Object);
+        }
+
+        [Fact]
+        public void converts_rel_with_multiple_links_to_json_array()
+        {
+            var resource = new FooResource();
+            resource.Links.Add(new Link("alternate", "http://api.example.org/baz"));
+            resource.Links.Add(new Link("alternate", "http://api.example.org/bar"));
+
+            var json = Format(resource);
+
+            json.SelectToken("_links.alternate").Type.ShouldEqual(JTokenType.Array);
+        }
+
         private static JToken Format(FooResource resource)
         {
             var mediaFormatter = new HyperfriendlyJsonMediaTypeFormatter {Indent = true};
