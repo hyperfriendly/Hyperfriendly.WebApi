@@ -18,6 +18,8 @@ namespace Hyperfriendly.WebApi
             foreach (var rel in lookup)
             {
                 writer.WritePropertyName(rel.Key);
+                if (rel.Count() > 1)
+                    writer.WriteStartArray();
                 foreach (var link in rel)
                 {
                     writer.WriteStartObject();
@@ -26,6 +28,9 @@ namespace Hyperfriendly.WebApi
 
                     writer.WriteEndObject();
                 }
+
+                if (rel.Count() > 1)
+                    writer.WriteEndArray();
             }
             writer.WriteEndObject();
         }
