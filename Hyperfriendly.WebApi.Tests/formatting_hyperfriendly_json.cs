@@ -10,13 +10,9 @@ namespace Hyperfriendly.WebApi.Tests
         private static readonly HyperfriendlyJsonMediaTypeFormatter _mediaFormatter = new HyperfriendlyJsonMediaTypeFormatter {Indent = true};
 
         [Fact]
-        public void formats_resource_properties_as_camel_case()
+        public void supports_hyperfriendly_json_media_type()
         {
-            var resource = new FooResource {Bar = "Baz"};
-
-            var json = _mediaFormatter.Format(resource);
-
-            json.Value<string>("bar").ShouldEqual("Baz");
+            _mediaFormatter.SupportedMediaTypes.First().MediaType.ShouldEqual("vnd/hyperfriendly+json");
         }
 
         [Fact]
@@ -28,6 +24,16 @@ namespace Hyperfriendly.WebApi.Tests
             var json = _mediaFormatter.Format(resource);
 
             json.SelectToken("_links").Type.ShouldEqual(JTokenType.Object);
+        }
+
+        [Fact]
+        public void resource_properties_are_in_camel_case()
+        {
+            var resource = new FooResource {Bar = "Baz"};
+
+            var json = _mediaFormatter.Format(resource);
+
+            json.Value<string>("bar").ShouldEqual("Baz");
         }
 
         [Fact]
@@ -51,12 +57,6 @@ namespace Hyperfriendly.WebApi.Tests
             var json = _mediaFormatter.Format(resource);
 
             json.SelectToken("_links.alternate").Type.ShouldEqual(JTokenType.Array);
-        }
-
-        [Fact]
-        public void supports_hyperfriendly_json_media_type()
-        {
-            _mediaFormatter.SupportedMediaTypes.First().MediaType.ShouldEqual("vnd/hyperfriendly+json");
         }
     }
 
