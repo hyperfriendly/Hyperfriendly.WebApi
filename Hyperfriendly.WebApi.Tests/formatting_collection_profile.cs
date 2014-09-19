@@ -32,7 +32,7 @@ namespace Hyperfriendly.WebApi.Tests
         }
 
         [Fact]
-        public void items_can_contain_resources()
+        public void items_array_contains_resources()
         {
             var collectionResource = new CollectionResource<FooResource>();
             var resource = new FooResource { Bar = "Foo" };
