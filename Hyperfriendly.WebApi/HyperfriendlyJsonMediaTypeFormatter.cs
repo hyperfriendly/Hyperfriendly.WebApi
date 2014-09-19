@@ -1,16 +1,17 @@
 ﻿using System.Net.Http.Formatting;
+using System.Net.Http.Headers;
 using Newtonsoft.Json.Serialization;
 
 namespace Hyperfriendly.WebApi
 {
     public class HyperfriendlyJsonMediaTypeFormatter : JsonMediaTypeFormatter
     {
-        readonly LinksConverter linksConverter = new LinksConverter();
+        readonly LinksConverter _linksConverter = new LinksConverter();
         public HyperfriendlyJsonMediaTypeFormatter()
         {
-            //SupportedMediaTypes.Add(new MediaTypeHeaderValue("application/hyperfriendly+json"));
+            SupportedMediaTypes.Add(new MediaTypeHeaderValue("vnd/hyperfriendly+json"));
             SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-            SerializerSettings.Converters.Add(linksConverter);
+            SerializerSettings.Converters.Add(_linksConverter);
         }
     }
 }
