@@ -9,6 +9,16 @@ namespace Hyperfriendly.WebApi.Tests
         private static readonly HyperfriendlyJsonMediaTypeFormatter _mediaFormatter = new HyperfriendlyJsonMediaTypeFormatter { Indent = true };
 
         [Fact]
+        public void contains_profile()
+        {
+            var collectionResource = new CollectionResource<FooResource>();
+
+            var jToken = _mediaFormatter.Format(collectionResource);
+
+            jToken.SelectToken("_links.profile.href").Value<string>().ShouldEqual(Profiles.Collection);
+        }
+
+        [Fact]
         public void items_element_is_json_array()
         {
             var collectionResource = new CollectionResource<FooResource>();
