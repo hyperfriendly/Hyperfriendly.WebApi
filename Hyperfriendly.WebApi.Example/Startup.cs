@@ -11,7 +11,7 @@ namespace Hyperfriendly.WebApi.Example
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                defaults: new { controller = "Home", id = RouteParameter.Optional }
                 );
 
             config.Formatters.Clear();
