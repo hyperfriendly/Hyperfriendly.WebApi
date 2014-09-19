@@ -10,7 +10,7 @@ namespace Hyperfriendly.WebApi
         readonly LinksConverter _linksConverter = new LinksConverter();
         public HyperfriendlyJsonMediaTypeFormatter()
         {
-            SupportedMediaTypes.Add(new MediaTypeHeaderValue("vnd/hyperfriendly+json"));
+            SupportedMediaTypes.Insert(0, new MediaTypeHeaderValue("vnd/hyperfriendly+json"));
             SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
             SerializerSettings.Converters.Add(_linksConverter);

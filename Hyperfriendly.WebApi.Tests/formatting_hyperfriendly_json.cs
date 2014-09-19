@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Linq;
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
 using Should;
@@ -8,6 +9,8 @@ namespace Hyperfriendly.WebApi.Tests
 {
     public class formatting_hyperfriendly_json
     {
+        private static readonly HyperfriendlyJsonMediaTypeFormatter _mediaFormatter = new HyperfriendlyJsonMediaTypeFormatter {Indent = true};
+
         [Fact]
         public void formats_resource_properties_as_camel_case()
         {
@@ -52,15 +55,20 @@ namespace Hyperfriendly.WebApi.Tests
             json.SelectToken("_links.alternate").Type.ShouldEqual(JTokenType.Array);
         }
 
+        [Fact]
+        public void supports_hyperfriendly_json_media_type()
+        {
+            _mediaFormatter.SupportedMediaTypes.First().MediaType.ShouldEqual("vnd/hyperfriendly+json");
+        }
+
         private static JToken Format(FooResource resource)
         {
-            var mediaFormatter = new HyperfriendlyJsonMediaTypeFormatter {Indent = true};
             var content = new StringContent(string.Empty);
             var type = resource.GetType();
 
             using (var stream = new MemoryStream())
             {
-                mediaFormatter.WriteToStreamAsync(type, resource, stream, content, null);
+                _mediaFormatter.WriteToStreamAsync(type, resource, stream, content, null);
                 stream.Seek(0, SeekOrigin.Begin);
                 var serialisedResult = new StreamReader(stream).ReadToEnd();
                 return JToken.Parse(serialisedResult);
