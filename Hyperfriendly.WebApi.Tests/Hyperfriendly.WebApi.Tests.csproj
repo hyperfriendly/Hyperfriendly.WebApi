@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="formatting_collection_profile.cs" />
+    <Compile Include="formatting_error_profile.cs" />
     <Compile Include="formatting_hyperfriendly_json.cs" />
     <Compile Include="MediaTypeFormatterExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -11,7 +11,12 @@ namespace Hyperfriendly.WebApi
         {
             var links = (IList<Link>)value;
             var lookup = links.ToLookup(l => l.Rel);
-            if (lookup.Count == 0) return;
+            if (lookup.Count == 0)
+            {
+                writer.WriteStartObject();
+                writer.WriteEndObject();
+                return;
+            }
 
             writer.WriteStartObject();
 

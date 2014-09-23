@@ -11,6 +11,7 @@ namespace Hyperfriendly.WebApi.Example
             var resource = new FooResource();
             resource.Links.Add(new Link("self", "/Foo"));
             resource.Links.Add(new Link("bars", "/BarCollection"));
+            resource.Links.Add(new Link("failing", "/Failing"));
             return Request.CreateResponse(resource);
         }
     }
