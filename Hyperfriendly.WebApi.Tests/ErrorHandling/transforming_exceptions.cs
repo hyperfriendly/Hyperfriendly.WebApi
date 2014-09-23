@@ -44,7 +44,7 @@ namespace Hyperfriendly.WebApi.Tests.ErrorHandling
 
             errorResponse.Title.ShouldEqual(title);
             errorResponse.Message.ShouldEqual(message);
-            errorResponse.HttpStatusCode.ShouldEqual(statusCode);            
+            errorResponse.HttpStatusCode.ShouldEqual(statusCode);
         }
 
         [Fact]
