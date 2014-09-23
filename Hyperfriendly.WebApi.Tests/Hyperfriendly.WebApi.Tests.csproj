@@ -58,6 +58,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ErrorHandling\transforming_exceptions.cs" />
     <Compile Include="formatting_collection_profile.cs" />
     <Compile Include="formatting_error_profile.cs" />
     <Compile Include="formatting_hyperfriendly_json.cs" />
@@ -73,6 +74,7 @@
       <Name>Hyperfriendly.WebApi</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
