@@ -54,7 +54,10 @@
   <ItemGroup>
     <Compile Include="CollectionResource.cs" />
     <Compile Include="ErrorEntryResource.cs" />
+    <Compile Include="ErrorHandling\ErrorResponse.cs" />
+    <Compile Include="ErrorHandling\ExceptionTransformer.cs" />
     <Compile Include="ErrorResource.cs" />
+    <Compile Include="ErrorHandling\HyperfriendlyExceptionHandler.cs" />
     <Compile Include="HyperfriendlyJsonMediaTypeFormatter.cs" />
     <Compile Include="Link.cs" />
     <Compile Include="LinksConverter.cs" />

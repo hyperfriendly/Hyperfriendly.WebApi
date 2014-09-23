@@ -73,6 +73,7 @@
     <Compile Include="BarController.cs" />
     <Compile Include="FailingController.cs" />
     <Compile Include="FooController.cs" />
+    <Compile Include="OhNoException.cs" />
     <Compile Include="Resources\BarResource.cs" />
     <Compile Include="Resources\FooResource.cs" />
     <Compile Include="HomeController.cs" />
