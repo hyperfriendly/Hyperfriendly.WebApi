@@ -30,7 +30,21 @@ namespace Hyperfriendly.WebApi
                     writer.WriteStartObject();
                     writer.WritePropertyName("href");
                     writer.WriteValue(link.Href);
-
+                    if (link.LinkProfiles.Any())
+                    {
+                        writer.WritePropertyName("linkProfiles");
+                        writer.WriteStartArray();
+                        foreach (var linkProfile in link.LinkProfiles)
+                        {
+                            writer.WriteValue(linkProfile);
+                        }
+                        writer.WriteEndArray();
+                    }
+                    if (link.Method != null)
+                    {
+                        writer.WritePropertyName("method");
+                        writer.WriteValue(link.Method);
+                    }
                     writer.WriteEndObject();
                 }
 
