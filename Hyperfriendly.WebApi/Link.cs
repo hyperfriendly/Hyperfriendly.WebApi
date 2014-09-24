@@ -1,4 +1,8 @@
-﻿namespace Hyperfriendly.WebApi
+﻿using System.Collections.Generic;
+using System.Linq;
+using Newtonsoft.Json;
+
+namespace Hyperfriendly.WebApi
 {
     public class Link
     {
@@ -8,7 +12,17 @@
             Href = href;
         }
 
-        public string Rel { get; set; }
-        public string Href { get; set; }
+        public string Rel { get; private set; }
+        public string Href { get; private set; }
+        public string Method { get; set; }
+
+        public IEnumerable<string> LinkProfiles
+        {
+            get
+            {
+                if (Method != null)
+                    yield return "http://profiles.hyperfriendly.net/method-hint";
+            }
+        }
     }
 }

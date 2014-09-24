@@ -63,6 +63,7 @@
     <Compile Include="formatting_error_profile.cs" />
     <Compile Include="formatting_hyperfriendly_json.cs" />
     <Compile Include="MediaTypeFormatterExtensions.cs" />
+    <Compile Include="formatting_method_hint_profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
