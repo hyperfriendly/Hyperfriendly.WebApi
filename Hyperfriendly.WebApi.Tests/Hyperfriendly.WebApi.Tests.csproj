@@ -44,6 +44,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Http, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
@@ -58,6 +59,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="creating_links.cs" />
     <Compile Include="ErrorHandling\transforming_exceptions.cs" />
     <Compile Include="formatting_collection_profile.cs" />
     <Compile Include="formatting_error_profile.cs" />
@@ -70,6 +72,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Hyperfriendly.WebApi.Example\Hyperfriendly.WebApi.Example.csproj">
+      <Project>{3BA83B8F-58C0-4E7F-A3C0-D0B0E8483101}</Project>
+      <Name>Hyperfriendly.WebApi.Example</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Hyperfriendly.WebApi\Hyperfriendly.WebApi.csproj">
       <Project>{0924BB7C-8EE9-4318-A78C-7C5E28F66883}</Project>
       <Name>Hyperfriendly.WebApi</Name>

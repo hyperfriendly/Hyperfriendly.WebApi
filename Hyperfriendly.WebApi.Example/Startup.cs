@@ -11,6 +11,9 @@ namespace Hyperfriendly.WebApi.Example
         public void Configuration(IAppBuilder appBuilder)
         {
             var config = new HttpConfiguration();
+
+            config.MapHttpAttributeRoutes();
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "{controller}/{id}",
@@ -26,3 +29,4 @@ namespace Hyperfriendly.WebApi.Example
         }
     }
 }
+
