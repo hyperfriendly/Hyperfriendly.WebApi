@@ -31,21 +31,27 @@ namespace Hyperfriendly.WebApi
             return new LinkCreator(rel);
         }
 
+        public LinkCreator WithRequest(HttpRequestMessage request)
+        {
+            _request = request;
+            return this;
+        }
+
         public Link GetLink<TController>()
         {
-            string href;
+            string uri;
 
             var queryParams = GetQueryParams(typeof(TController));
 
             if (_useNamedRoute)
             {
                 _values["controller"] = typeof (TController).Name.Replace("Controller", "");
-                href = new UrlHelper(_request).Link(_routeName, _values);
+                uri = new UrlHelper(_request).Link(_routeName, _values);
             }
             else
             {
                 var template = GetRouteTemplate(typeof(TController)).Template;
-                href = Regex.Replace(template, @"\{([^\:]*?)(\:.*?|)(\?|)\}", match =>
+                uri = Regex.Replace(template, @"\{([^\:]*?)(\:.*?|)(\?|)\}", match =>
                 {
                     var value = match.Groups[1].Value;
                     return _values.ContainsKey(value)
@@ -54,9 +60,13 @@ namespace Hyperfriendly.WebApi
                 });
             }
 
-            href += GetQueryString(queryParams);
+            uri += GetQueryString(queryParams);
 
-            return new Link(_rel, href);
+            return new Link(_rel, uri)
+            {
+                Method = _httpVerb,
+                Request = _request
+            };
         }
 
         private string GetQueryString(List<string> queryParams)
